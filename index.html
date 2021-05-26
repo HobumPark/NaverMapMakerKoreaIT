@@ -47,6 +47,14 @@ naver.maps.Event.addListener(marker, "click", function(e) {
     }
 }
 );
+
+
+$(window).on("load", function() {
+    var location = new naver.maps.LatLng(35.86609, 128.59383);
+
+    map.setCenter(location); // 얻은 좌표를 지도의 중심으로 설정합니다.
+});
+
 </script>
 </body>
 </html>
