@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3yna7clpbz"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/app.js"></script>
+</head>
+<body>
+<div id="map" style="width:100%;height:400px;"></div>
+<script>
+var cityhall = new naver.maps.LatLng(35.86609, 128.59383);
+
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(35.86609, 128.59383),
+    zoom: 10
+});
+
+var contentString = [
+    '<div class="iw_inner">',
+    '   <h3>코리아 IT아카데미 대구점</h3>',
+    '   <p>대구광역시 중구 덕산동 96-15<br>',
+    '       <img src="./images/korea-it.jpg" width="55" height="55" alt="코리아it" class="thumb" /><br>',
+    '       053-710-5890 | 학원,교육기관<br>',
+    '       <a href="http://www.koreaisacademy.com/" target="_blank">http://www.koreaisacademy.com/</a>',
+    '   </p>',
+    '</div>'
+].join('');
+
+var marker = new naver.maps.Marker({
+    map: map,
+    position: cityhall
+});
+
+var infowindow = new naver.maps.InfoWindow({
+    content: contentString
+});
+
+naver.maps.Event.addListener(marker, "click", function(e) {
+    if (infowindow.getMap()) {
+        infowindow.close();
+    } else {
+        infowindow.open(map, marker);
+    }
+</script>
+</body>
+</html>
