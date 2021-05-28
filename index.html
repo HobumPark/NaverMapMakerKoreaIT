@@ -12,11 +12,11 @@
 <body>
     <div id="map" style="width:100%;height:600px;"></div>
 <script>
-var cityhall = new naver.maps.LatLng(35.86604155476922, 128.5938121498087);
+var koreaIT = new naver.maps.LatLng(35.86604155476922, 128.5938121498087);
 
 var map = new naver.maps.Map('map', {
     center: new naver.maps.LatLng(35.86604155476922, 128.5938121498087),
-    zoom: 10
+    zoom: 15
 });
 
 var contentString = [
@@ -32,7 +32,7 @@ var contentString = [
 
 var marker = new naver.maps.Marker({
     map: map,
-    position: cityhall
+    position: koreaIT
 });
 
 var infowindow = new naver.maps.InfoWindow({
